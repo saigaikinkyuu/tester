@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>実行結果</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+	<center>
+		<h1>JavaScriptとHTMLで簡単なログインフォームを作る</h1>
+	</center>
+</header>
+<style>
+	header {
+		position: fixed;
+		color: white;
+		width: 100%;
+		height: 70px;
+		background-color: #8dc21f;
+	}
+</style>
+
+<br>
+<br>
+<br>
+
+<center>
+	<h2>実行結果</h2>
+</center>
+
+<center>
+
+	<h3>実行結果はこのようになります.</h3>
+	<br>
+	<p>
+		<b>
+			このように, 簡単にJavaScriptとHTMLだけでログインフォームを作成することができます.
+			<br>
+			あくまでで簡易的なもので, セキュリティ的にもガバガバなので実際に使用するのはオススメしませんが, プログラムの勉強には良いかもしれませんね.
+		</b>
+	</p>
+
+</center>
+  <form id="myForm">
+    <label for="name">名前:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Eメール:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="age">年齢:</label>
+    <input type="number" id="age" name="age"><br><br>
+
+    <button type="button" onclick="formDataToJSON()">JSONに変換</button>
+  </form>
+
+  <pre id="jsonResult"></pre>
+
+  <script>
+    function formDataToJSON() {
+      // フォームからデータを取得
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var age = document.getElementById("age").value;
+
+      // データをJSONにまとめる
+      var formData = {
+        name: name,
+        email: email,
+        age: age
+      };
+
+      // JSONを文字列に変換して表示
+      var jsonResult = document.getElementById("jsonResult");
+      jsonResult.textContent = JSON.stringify(formData, null, 2);
+    }
+  </script>
+
+</body>
+
+</html>
